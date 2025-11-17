@@ -6,13 +6,7 @@ import {
   _electron as electron,
 } from 'playwright'
 import type { BrowserWindow } from 'electron'
-import {
-  beforeAll,
-  afterAll,
-  describe,
-  expect,
-  test,
-} from 'vitest'
+import { beforeAll, afterAll, describe, expect, test } from 'vitest'
 
 const root = path.join(__dirname, '..')
 let electronApp: ElectronApplication
@@ -31,7 +25,7 @@ if (process.platform === 'linux') {
     page = await electronApp.firstWindow()
 
     const mainWin: JSHandle<BrowserWindow> = await electronApp.browserWindow(page)
-    await mainWin.evaluate(async (win) => {
+    await mainWin.evaluate(async win => {
       win.webContents.executeJavaScript('console.log("Execute JavaScript with e2e testing.")')
     })
   })
