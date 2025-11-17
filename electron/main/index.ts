@@ -4,21 +4,10 @@ import { fileURLToPath } from 'node:url'
 import path from 'node:path'
 import os from 'node:os'
 import { update } from './update'
-import registerShortcut from '../shortcut-key'
 
 const require = createRequire(import.meta.url)
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
-// The built directory structure
-//
-// ├─┬ dist-electron
-// │ ├─┬ main
-// │ │ └── index.js    > Electron-Main
-// │ └─┬ preload
-// │   └── index.mjs   > Preload-Scripts
-// ├─┬ dist
-// │ └── index.html    > Electron-Renderer
-//
 process.env.APP_ROOT = path.join(__dirname, '../..')
 
 export const MAIN_DIST = path.join(process.env.APP_ROOT, 'dist-electron')
@@ -48,6 +37,9 @@ async function createWindow() {
   win = new BrowserWindow({
     title: 'Main window',
     icon: path.join(process.env.VITE_PUBLIC, 'favicon.ico'),
+    minWidth: 1024,
+    minHeight: 768,
+    autoHideMenuBar: true,
     webPreferences: {
       preload,
       // Warning: Enable nodeIntegration and disable contextIsolation is not secure in production
@@ -83,9 +75,7 @@ async function createWindow() {
   update(win)
 }
 
-app.whenReady().then(createWindow).then(() => {
-  registerShortcut(win as BrowserWindow)
-})
+app.whenReady().then(createWindow)
 
 app.on('window-all-closed', () => {
   win = null
@@ -124,4 +114,19 @@ ipcMain.handle('open-win', (_, arg) => {
   } else {
     childWindow.loadFile(indexHtml, { hash: arg })
   }
+})
+
+app.on('browser-window-created', (_, window) => {
+  window.webContents.on('before-input-event', (event, input) => {
+    const isF12 = input.type === 'keyDown' && input.key === 'F12'
+    const isCSI = input.type === 'keyDown' && input.key?.toUpperCase() === 'I' && input.control && input.shift
+    if (isF12 || isCSI) {
+      if (window.webContents.isDevToolsOpened()) {
+        window.webContents.closeDevTools()
+      } else {
+        window.webContents.openDevTools()
+      }
+      event.preventDefault()
+    }
+  })
 })
