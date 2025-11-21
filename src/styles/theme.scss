@@ -8,7 +8,9 @@
   --ring: var(--primary-hsl);
   --foreground: var(--primary-hsl);
   --background: var(--schema-hsl);
-  --muted-foreground: var(--border-hsl);
+  --muted-foreground: 0 0% 55%;
+  --accent: var(--background-subtle-hsl);
+  --accent-foreground: var(--primary-hsl);
 
   --color-primary: hsl(var(--primary-hsl));
   --color-schema: hsl(var(--schema-hsl));
@@ -19,7 +21,7 @@
 .pink {
   --primary-hsl: 330 100% 71%;
   --schema-hsl: 0 0% 100%;
-  --border-hsl: 33 100% 50%;
+  --border-hsl: 330 100% 71%;
   --background-subtle-hsl: 330 100% 96%;
 
   --input: var(--border-hsl);
@@ -27,6 +29,8 @@
   --foreground: var(--primary-hsl);
   --background: var(--schema-hsl);
   --muted-foreground: var(--border-hsl);
+  --accent: var(--background-subtle-hsl);
+  --accent-foreground: var(--primary-hsl);
 
   --color-primary: hsl(var(--primary-hsl));
   --color-schema: hsl(var(--schema-hsl));
@@ -45,6 +49,8 @@
   --foreground: var(--primary-hsl);
   --background: var(--schema-hsl);
   --muted-foreground: var(--border-hsl);
+  --accent: var(--background-subtle-hsl);
+  --accent-foreground: var(--primary-hsl);
 
   --color-primary: hsl(var(--primary-hsl));
   --color-schema: hsl(var(--schema-hsl));
@@ -63,6 +69,8 @@
   --foreground: var(--primary-hsl);
   --background: var(--schema-hsl);
   --muted-foreground: var(--border-hsl);
+  --accent: var(--background-subtle-hsl);
+  --accent-foreground: var(--primary-hsl);
 
   --color-primary: hsl(var(--primary-hsl));
   --color-schema: hsl(var(--schema-hsl));
@@ -81,6 +89,29 @@
   --foreground: var(--primary-hsl);
   --background: var(--schema-hsl);
   --muted-foreground: var(--border-hsl);
+  --accent: var(--background-subtle-hsl);
+  --accent-foreground: var(--primary-hsl);
+
+  --color-primary: hsl(var(--primary-hsl));
+  --color-schema: hsl(var(--schema-hsl));
+  --color-border: hsl(var(--border-hsl));
+  --color-background-subtle: hsl(var(--background-subtle-hsl));
+}
+
+.night {
+  --primary-hsl: 0 0% 98%;
+  --schema-hsl: 0 0% 7%;
+  --border-hsl: 0 0% 18%;
+  --background-subtle-hsl: 0 0% 10%;
+
+  --input: var(--border-hsl);
+  --ring: var(--primary-hsl);
+  --foreground: var(--primary-hsl);
+  --background: var(--schema-hsl);
+  --border: var(--border-hsl);
+  --muted-foreground: 0 0% 70%;
+  --accent: var(--background-subtle-hsl);
+  --accent-foreground: var(--primary-hsl);
 
   --color-primary: hsl(var(--primary-hsl));
   --color-schema: hsl(var(--schema-hsl));

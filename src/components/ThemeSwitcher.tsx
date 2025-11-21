@@ -7,6 +7,7 @@ const SWATCH_HSL: Record<Theme, string> = {
   orange: 'hsl(33 100% 50%)',
   green: 'hsl(120 100% 25%)',
   blue: 'hsl(211 100% 50%)',
+  night: 'hsl(0 0% 7%)',
 }
 
 export default function ThemeSwitcher(): JSX.Element {

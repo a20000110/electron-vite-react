@@ -17,6 +17,7 @@ const SWATCH_HSL: Record<Theme, string> = {
   orange: 'hsl(33 100% 50%)',
   green: 'hsl(120 100% 25%)',
   blue: 'hsl(211 100% 50%)',
+  night: 'hsl(0 0% 7%)',
 }
 
 export default function ThemeMenu(): JSX.Element {
@@ -33,10 +34,10 @@ export default function ThemeMenu(): JSX.Element {
           className="cursor-pointer hover:border-color-primary"
           aria-label="theme-switcher"
         >
-          <RemixIcon name="palette-fill" size={20} style={{ color: 'hsl(var(--primary-hsl))' }} />
+          <RemixIcon name="palette-fill" size={20} />
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="bg-schema text-foreground border border-color-primary min-w-40">
+      <DropdownMenuContent className="bg-schema text-foreground border border-border min-w-40">
         <DropdownMenuLabel className="text-sm">选择主题</DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuRadioGroup value={theme} onValueChange={v => setTheme(v as Theme)}>

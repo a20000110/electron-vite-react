@@ -73,7 +73,7 @@ class HttpService {
   // 初始化axios实例
   private initAxiosInstance(): void {
     this.service = axios.create({
-      baseURL: 'http://localhost:9081',
+      baseURL: 'https://kg-music.hhchen.cn',
       timeout: 30000,
       headers: { 'Content-Type': 'application/json;charset=utf-8' },
     })
@@ -161,15 +161,14 @@ class HttpService {
           }
         }
 
-        const { data, errorMessage, success } = response.data
+        const { status, data, errorCode, error_msg } = response.data || {}
 
-        // 成功响应
-        if (success) return data
-        const reject = () => Promise.reject(response.data)
+        if (status === 1 && (errorCode === 0 || errorCode === undefined || errorCode === null)) {
+          return data
+        }
 
-        toast.error(errorMessage || '系统出错')
-
-        return reject()
+        toast.error(error_msg || '系统出错')
+        return Promise.reject(response.data)
       },
       async (error: any) => {
         console.error('request error', error)
@@ -250,8 +249,8 @@ class HttpService {
       return
     }
     svc(config)
-      .then((response: AxiosResponse<T>) => {
-        resolve(response.data)
+      .then((response: any) => {
+        resolve(response as T)
       })
       .catch((error: any) => {
         reject(error)
