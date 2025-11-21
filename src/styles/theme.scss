@@ -1,0 +1,89 @@
+.black {
+  --primary-hsl: 0 0% 0%;
+  --schema-hsl: 0 0% 100%;
+  --border-hsl: 220 13% 91%;
+  --background-subtle-hsl: 0 0% 96%;
+
+  --input: var(--border-hsl);
+  --ring: var(--primary-hsl);
+  --foreground: var(--primary-hsl);
+  --background: var(--schema-hsl);
+  --muted-foreground: var(--border-hsl);
+
+  --color-primary: hsl(var(--primary-hsl));
+  --color-schema: hsl(var(--schema-hsl));
+  --color-border: hsl(var(--border-hsl));
+  --color-background-subtle: hsl(var(--background-subtle-hsl));
+}
+
+.pink {
+  --primary-hsl: 330 100% 71%;
+  --schema-hsl: 0 0% 100%;
+  --border-hsl: 33 100% 50%;
+  --background-subtle-hsl: 330 100% 96%;
+
+  --input: var(--border-hsl);
+  --ring: var(--primary-hsl);
+  --foreground: var(--primary-hsl);
+  --background: var(--schema-hsl);
+  --muted-foreground: var(--border-hsl);
+
+  --color-primary: hsl(var(--primary-hsl));
+  --color-schema: hsl(var(--schema-hsl));
+  --color-border: hsl(var(--border-hsl));
+  --color-background-subtle: hsl(var(--background-subtle-hsl));
+}
+
+.orange {
+  --primary-hsl: 33 100% 50%;
+  --schema-hsl: 0 0% 100%;
+  --border-hsl: 33 100% 50%;
+  --background-subtle-hsl: 33 100% 96%;
+
+  --input: var(--border-hsl);
+  --ring: var(--primary-hsl);
+  --foreground: var(--primary-hsl);
+  --background: var(--schema-hsl);
+  --muted-foreground: var(--border-hsl);
+
+  --color-primary: hsl(var(--primary-hsl));
+  --color-schema: hsl(var(--schema-hsl));
+  --color-border: hsl(var(--border-hsl));
+  --color-background-subtle: hsl(var(--background-subtle-hsl));
+}
+
+.green {
+  --primary-hsl: 120 100% 25%;
+  --schema-hsl: 0 0% 100%;
+  --border-hsl: 120 100% 25%;
+  --background-subtle-hsl: 120 100% 96%;
+
+  --input: var(--border-hsl);
+  --ring: var(--primary-hsl);
+  --foreground: var(--primary-hsl);
+  --background: var(--schema-hsl);
+  --muted-foreground: var(--border-hsl);
+
+  --color-primary: hsl(var(--primary-hsl));
+  --color-schema: hsl(var(--schema-hsl));
+  --color-border: hsl(var(--border-hsl));
+  --color-background-subtle: hsl(var(--background-subtle-hsl));
+}
+
+.blue {
+  --primary-hsl: 211 100% 50%;
+  --schema-hsl: 0 0% 100%;
+  --border-hsl: 211 100% 50%;
+  --background-subtle-hsl: 211 100% 96%;
+
+  --input: var(--border-hsl);
+  --ring: var(--primary-hsl);
+  --foreground: var(--primary-hsl);
+  --background: var(--schema-hsl);
+  --muted-foreground: var(--border-hsl);
+
+  --color-primary: hsl(var(--primary-hsl));
+  --color-schema: hsl(var(--schema-hsl));
+  --color-border: hsl(var(--border-hsl));
+  --color-background-subtle: hsl(var(--background-subtle-hsl));
+}

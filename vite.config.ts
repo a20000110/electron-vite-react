@@ -64,6 +64,13 @@ export default defineConfig(({ command }) => {
         renderer: {},
       }),
     ],
+    css: {
+      preprocessorOptions: {
+        scss: {
+          api: 'modern',
+        },
+      },
+    },
     server:
       process.env.VSCODE_DEBUG &&
       (() => {

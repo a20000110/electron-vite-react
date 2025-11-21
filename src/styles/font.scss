@@ -1,0 +1,22 @@
+@font-face {
+  font-family: 'AlimamaDaoLiTi';
+  src:
+    url('../assets/font/alimama/AlimamaDaoLiTi.woff2') format('woff2'),
+    url('../assets/font/alimama/AlimamaDaoLiTi.woff') format('woff'),
+    url('../assets/font/alimama/AlimamaDaoLiTi.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SmileySans-Oblique';
+  src:
+    url('../assets/font/deyi/SmileySans-Oblique.woff2') format('woff2'),
+    url('../assets/font/deyi/SmileySans-Oblique.woff') format('woff'),
+    url('../assets/font/deyi/SmileySans-Oblique.ttf') format('truetype'),
+    url('../assets/font/deyi/SmileySans-Oblique.otf') format('opentype');
+  font-weight: normal;
+  font-style: oblique;
+  font-display: swap;
+}

@@ -1,11 +1,9 @@
-import { app, BrowserWindow, shell, ipcMain } from 'electron'
-import { createRequire } from 'node:module'
-import { fileURLToPath } from 'node:url'
-import path from 'node:path'
+import { app, BrowserWindow, ipcMain, shell } from 'electron'
 import os from 'node:os'
+import path from 'node:path'
+import { fileURLToPath } from 'node:url'
 import { update } from './update'
 
-const require = createRequire(import.meta.url)
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 process.env.APP_ROOT = path.join(__dirname, '../..')
@@ -33,12 +31,17 @@ let win: BrowserWindow | null = null
 const preload = path.join(__dirname, '../preload/index.mjs')
 const indexHtml = path.join(RENDERER_DIST, 'index.html')
 
+const width = 1024
+const height = 768
+
 async function createWindow() {
   win = new BrowserWindow({
     title: 'Main window',
     icon: path.join(process.env.VITE_PUBLIC, 'favicon.ico'),
-    minWidth: 1024,
-    minHeight: 768,
+    width,
+    height,
+    minWidth: width,
+    minHeight: height,
     autoHideMenuBar: true,
     webPreferences: {
       preload,
@@ -59,6 +62,10 @@ async function createWindow() {
   } else {
     win.loadFile(indexHtml)
   }
+
+  win.once('ready-to-show', () => {
+    win?.show()
+  })
 
   // Test actively push message to the Electron-Renderer
   win.webContents.on('did-finish-load', () => {
@@ -119,7 +126,8 @@ ipcMain.handle('open-win', (_, arg) => {
 app.on('browser-window-created', (_, window) => {
   window.webContents.on('before-input-event', (event, input) => {
     const isF12 = input.type === 'keyDown' && input.key === 'F12'
-    const isCSI = input.type === 'keyDown' && input.key?.toUpperCase() === 'I' && input.control && input.shift
+    const isCSI =
+      input.type === 'keyDown' && input.key?.toUpperCase() === 'I' && input.control && input.shift
     if (isF12 || isCSI) {
       if (window.webContents.isDevToolsOpened()) {
         window.webContents.closeDevTools()

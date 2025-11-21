@@ -1,0 +1,13 @@
+:root {
+  --sidebar-width: 256px; // 侧边栏宽度
+  --sidebar-fold-width: 60px; // 侧边栏折叠宽度
+  --sidebar-height: calc(100vh - var(--play-height)); // 侧边栏高度
+  --logo-block-height: 80px; // logo块 高度
+  --sidebar-menu-height: calc(var(--sidebar-height) - var(--logo-block-height)); // 菜单高度
+  --play-height: 72px; // 播放器高度
+  --play-width: 100vw; // 播放器宽度
+  --navbar-height: 64px; // 导航栏高度
+  --navbar-width: calc(100vw - var(--sidebar-width)); // 导航栏宽度
+  --view-width: calc(100vw - var(--sidebar-width)); // 视图宽度
+  --view-height: calc(100vh - var(--navbar-height) - var(--play-height)); // 视图高度
+}

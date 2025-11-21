@@ -1,35 +1,39 @@
 {
-  "typescript.tsdk": "node_modules/typescript/lib",
-  "typescript.tsc.autoDetect": "off",
-  "json.schemas": [
-    {
-      "fileMatch": ["/*electron-builder.json5", "/*electron-builder.json"],
-      "url": "https://json.schemastore.org/electron-builder"
-    }
-  ],
+  "editor.codeActionsOnSave": {
+    "source.removeUnused": "explicit",
+    "source.organizeImports": "explicit"
+  },
   "editor.formatOnSave": true,
-  "[json]": {
-    "editor.defaultFormatter": "vscode.json-language-features"
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.quickSuggestions": {
+    "strings": true
   },
-  "[vue]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "tailwindCSS.experimental.configFile": "tailwind.config.js",
+  "tailwindCSS.includeLanguages": {
+    "plaintext": "html",
+    "react": "html",
+    "typescript": "javascript",
+    "typescriptreact": "javascript"
   },
-  "[typescript]": {
-    "editor.defaultFormatter": "vscode.typescript-language-features"
-  },
-  "[typescriptreact]": {
-    "editor.defaultFormatter": "vscode.typescript-language-features"
-  },
-  "[css]": {
-    "editor.defaultFormatter": "vscode.css-language-features"
-  },
-  "[less]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[scss]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[graphql]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  // 资源管理器外观优化
+  // 增加树缩进，提升层级清晰度（像素）
+  "workbench.tree.indent": 14,
+  // 始终渲染缩进引导线，便于视觉分层
+  "workbench.tree.renderIndentGuides": "always",
+  // 关闭紧凑文件夹，将每层目录显式展示，避免过度挤压
+  "explorer.compactFolders": false,
+  // 启用文件嵌套，按常见前端约定折叠关联文件
+  "explorer.fileNesting.enabled": true,
+  // 默认折叠嵌套，保持资源管理器简洁
+  "explorer.fileNesting.expand": false,
+  "terminal.integrated.defaultProfile.osx": "zsh",
+  "terminal.integrated.fontFamily": "monospace",
+  "terminal.integrated.profiles.osx": {
+    "zsh": {
+      "path": "/bin/zsh",
+      "args": []
+    }
   }
 }
